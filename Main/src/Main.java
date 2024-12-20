@@ -23,8 +23,11 @@ public class Main {
         boolean dispo = ser.nextBoolean();
         livres.add(books);
     }
-
-
+    public static void Afficher(){
+        for(int i=0;i<livres.size();i++) {
+            System.out.println(livres.get(i).toString());
+        }
+    }
 
     public static void main(String[] args) {
         int choix;
@@ -43,9 +46,12 @@ public class Main {
                     Ajouter();
                     break;
                 case 2:
+                    Afficher();
+                    break;
+                case 3:
                     System.out.println("au revoir !!");
 
             }
-        } while (choix != 2);
+        } while (choix != 3);
     }
 }
