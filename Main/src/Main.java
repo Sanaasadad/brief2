@@ -3,33 +3,34 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-   static ArrayList<book> livres = new ArrayList<>();
+   static ArrayList<Book> livres = new ArrayList<>();
 
     static Scanner ser = new Scanner(System.in);
 
     public static void Ajouter() {
 
-
-
-        book books = new book();
         System.out.println("Entre l'Isbn: ");
-        int Isbn = ser.nextInt();
-        ser.nextLine();
+        String Isbn = ser.next();
         System.out.println("Entre le titre: ");
-        String titre = ser.nextLine();
+        String titre = ser.next();
+        ser.nextLine();
         System.out.println("Entre l'auteur: ");
         String auteur = ser.nextLine();
-        System.out.println("Entre la disponibilté (vrai/faux)");
+        System.out.println("Entre la disponibilté (true/false)");
         boolean dispo = ser.nextBoolean();
-        livres.add(books);
+
+       // livres.add(books);
+        livres.add(new Book(titre, auteur, dispo, Isbn));
     }
     public static void Afficher(){
         for(int i=0;i<livres.size();i++) {
             System.out.println(livres.get(i).toString());
         }
+
     }
 
     public static void main(String[] args) {
+        Book book = new Book();
         int choix;
         do {
             System.out.println("Menu: ");
