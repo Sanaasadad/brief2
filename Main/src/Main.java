@@ -34,18 +34,47 @@ public class Main {
             }
         }
     }
-    public static void Supprimer(){
+    public static void Supprimer() {
         System.out.println("Entre l'Isbn:");
         String Isbn = ser.next();
-        for(int i = 0; i< livres.size();i++){
+        for (int i = 0; i < livres.size(); i++) {
             Book livre = livres.get(i);
-            if(livre.getIsbn().equals(Isbn)){
+            if (livre.getIsbn().equals(Isbn)) {
                 livres.remove(i);
                 System.out.println("livre supprimé.");
                 return;
             }
         }
         System.out.println("livre non trouvé");
+    }
+    public static void Modification() {
+
+        System.out.println("Entrer l'Isbn qui veux modifier");
+        String Isbn = ser.next();
+        for (int i = 0; i < livres.size(); i++) {
+            Book livre = livres.get(i);
+
+                        System.out.println("Entrer le nouveau Isbn du livre :");
+                        String nouveauIsbn = ser.next();
+                        livre.setIsbn(nouveauIsbn);
+                        System.out.println("l'Isbn est modifier");
+
+                        System.out.println("Entrer le nouveau titre du livre :");
+                        String nouveauTitre = ser.next();
+                        livre.setTitre(nouveauTitre);
+                        System.out.println("le titre est modifier");
+
+                        System.out.println("Entrer le nouveau auteur du livre :");
+                        String nouveauAuteur = ser.next();
+                        livre.setTitre(nouveauAuteur);
+                        System.out.println("l'auteur  est modifier");
+
+                        System.out.println("Entrer le nouveau responsabilité du livre :");
+                        String nouveauRespo = ser.next();
+                        livre.setTitre(nouveauRespo);
+                        System.out.println("la responsabilité est modifier");
+
+        }
     }
 
     public static void main(String[] args) {
@@ -76,10 +105,13 @@ public class Main {
                     Supprimer();
                     break;
                 case 5:
+                    Modification();
+                    break;
+                case 6:
                     System.out.println("au revoir !!");
                     break;
 
             }
-        } while (choix != 4);
+        } while (choix != 6);
     }
 }
