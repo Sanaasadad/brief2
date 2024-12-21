@@ -1,5 +1,4 @@
 
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -19,7 +18,6 @@ public class Main {
         System.out.println("Entre la disponibilté (true/false)");
         boolean dispo = ser.nextBoolean();
 
-       // livres.add(books);
         livres.add(new Book(titre, auteur, dispo, Isbn));
     }
     public static void Afficher() {
@@ -27,15 +25,23 @@ public class Main {
             System.out.println(livres.get(i).toString());
         }
     }
-    public static void Rechercher(){
-            System.out.println(" Entre l'isbn: ");
-            String Isbn = ser.nextLine();
-            for( Book livres : livres) {
-                if (livres.getIsbn().equals(Isbn)){
-                    System.out.println(livres);
+    public static void Rechercher() {
+        System.out.println(" Entre l'isbn: ");
+        String Isbn = ser.next();
+        for (Book livres : livres) {
+            if (livres.getIsbn().equals(Isbn)) {
+                System.out.println(livres);
+            }
+        }
+    }
+    public static void Supprimer(){
+        System.out.println("Entre l'Isbn:");
+        String Isbn = ser.nextLine();
+        for(Book livre : livres){
+            if(livre.getIsbn().equals(Isbn)){
 
-            }
-            }
+            }livres.remove(livre);
+        }
     }
 
     public static void main(String[] args) {
@@ -46,9 +52,9 @@ public class Main {
             System.out.println(" 1-Ajouter");
             System.out.println(" 2-Afficher");
             System.out.println(" 3-Rechercher");
-            System.out.println(" 4-Modifier");
             System.out.println(" 4-Supprimer");
-            System.out.println(" 5-quitter");
+            System.out.println(" 5-Modifier");
+            System.out.println(" 6-quitter");
             System.out.println(" choisissez une option");
             choix = ser.nextInt();
 
@@ -63,7 +69,11 @@ public class Main {
                     Rechercher();
                     break;
                 case 4:
+                    Supprimer();
+                    break;
+                case 5:
                     System.out.println("au revoir !!");
+                    break;
 
             }
         } while (choix != 4);
