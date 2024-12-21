@@ -36,12 +36,16 @@ public class Main {
     }
     public static void Supprimer(){
         System.out.println("Entre l'Isbn:");
-        String Isbn = ser.nextLine();
-        for(Book livre : livres){
+        String Isbn = ser.next();
+        for(int i = 0; i< livres.size();i++){
+            Book livre = livres.get(i);
             if(livre.getIsbn().equals(Isbn)){
-
-            }livres.remove(livre);
+                livres.remove(i);
+                System.out.println("livre supprimé.");
+                return;
+            }
         }
+        System.out.println("livre non trouvé");
     }
 
     public static void main(String[] args) {
